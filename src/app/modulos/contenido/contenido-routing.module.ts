@@ -4,7 +4,7 @@ import { RegistroitemsComponent } from './registroitems/registroitems.component'
 import { ContenidoComponent } from './contenido.component';
 
 const routes: Routes = [
-  { path: 'contenido', component: ContenidoComponent },
+  { path: '', component: ContenidoComponent },
   { path: '', component: RegistroitemsComponent },
 ];
 

@@ -5,7 +5,11 @@ import { ContenidoComponent } from './modulos/contenido/contenido.component';
 import { RegistroitemsComponent } from './modulos/contenido/registroitems/registroitems.component';
 
 const routes: Routes = [
+  {path: '', loadChildren: () => import('./modulos/home/home.module').then(m=>m.HomeModule)},
+
   {path: '', loadChildren: () => import('./modulos/contenido/contenido.module').then(m =>m.ContenidoModule)},
+
+  { path: '', component:HomeComponent},
  { path: '', component: ContenidoComponent },
  { path: '', component: RegistroitemsComponent },
 ];

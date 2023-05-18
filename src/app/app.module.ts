@@ -10,8 +10,8 @@ import { RegistroitemsComponent } from './modulos/contenido/registroitems/regist
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    
+   
+
   ],
   imports: [
     BrowserModule,
