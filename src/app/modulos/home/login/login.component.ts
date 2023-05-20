@@ -35,7 +35,15 @@ export class LoginComponent {
       });
     } else if (this.username === 'pmina' && this.password === 'p2023') {
       this.authService.setLoggedInUser(this.username);
-      this.router.navigate(['/items']);
+      from(this.anteproyectoService.getAnteproyectosByUsuario(this.username)).subscribe((response: any) => {
+        if (Array.isArray(response) && response.length > 0) {
+          // Usuario con anteproyecto registrado, redirigir a la página de detalle del anteproyecto
+          this.router.navigate(['/items']);
+        } else {
+          // Estudiante sin anteproyecto registrado
+          this.router.navigate(['/registroanteproyecto']);
+        }
+      });
     } else {
       alert('Credenciales inválidas');
     }
