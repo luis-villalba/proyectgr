@@ -12,6 +12,9 @@ const routes: Routes = [
   {path: '', component: HomeComponent },
   {path: 'registroanteproyecto', component: RegistroanteproyectoComponent },
   {path: 'items', component: ItemsComponent },
+  {
+    path:'footer', component: HomeComponent
+  }
 ];
 
 @NgModule({
