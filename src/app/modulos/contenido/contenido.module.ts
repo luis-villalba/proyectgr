@@ -3,15 +3,21 @@ import { CommonModule } from '@angular/common';
 
 import { ContenidoRoutingModule } from './contenido-routing.module';
 import { ContenidoComponent } from './contenido.component';
+import { RegistroanteproyectoComponent } from './registroanteproyecto/registroanteproyecto.component';
+import { FormsModule } from '@angular/forms';
+import { ItemsComponent } from './items/items.component';
 
 
 @NgModule({
   declarations: [
-    ContenidoComponent
+    ContenidoComponent,
+    RegistroanteproyectoComponent,
+    ItemsComponent
   ],
   imports: [
     CommonModule,
-    ContenidoRoutingModule
+    ContenidoRoutingModule,
+    FormsModule 
   ]
 })
 export class ContenidoModule { }

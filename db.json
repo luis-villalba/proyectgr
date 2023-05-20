@@ -1,10 +1,12 @@
 {
-  "users": [
-    {"message": "Autenticacion ok",
-    "id": "1",
-    "name": "eduardo",
-     "email": "lvillalba@unipacifico.edu.co" }
+  "users": [],
+  "anteproyectos": [
+    {
+      "nombre": "generar",
+      "descripcion": "ityyeye",
+      "usuario": "lvillalba",
+      "id": 1
+    }
   ],
-  "anteproyectos": [],
   "items": []
 }

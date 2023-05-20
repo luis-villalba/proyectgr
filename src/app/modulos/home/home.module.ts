@@ -7,7 +7,7 @@ import { SliderComponent } from './slider/slider.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -18,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HeaderComponent,
     LoginComponent,
-    NavbarComponent
+ 
+
   ],
   imports: [
     CommonModule,

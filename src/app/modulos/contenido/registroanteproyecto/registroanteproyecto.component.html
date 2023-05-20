@@ -1,0 +1,12 @@
+<h2>Registro de Anteproyecto</h2>
+<form (ngSubmit)="registrarAnteproyecto()">
+  <div>
+    <label for="nombreAnteproyecto">Nombre del anteproyecto:</label>
+    <input type="text" id="nombreAnteproyecto" [(ngModel)]="nombreAnteproyecto" name="nombreAnteproyecto" placeholder="Ingrese el nombre del anteproyecto" required>
+  </div>
+  <div>
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" [(ngModel)]="descripcion" name="descripcion" placeholder="Ingrese una breve descripción" required></textarea>
+  </div>
+  <button type="submit">Registrar</button>
+</form>
