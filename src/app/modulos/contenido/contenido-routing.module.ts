@@ -6,12 +6,14 @@ import { RegistroanteproyectoComponent } from './registroanteproyecto/registroan
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ItemsComponent } from './items/items.component';
+import { RegistraritemsComponent } from './registraritems/registraritems.component';
 
 const routes: Routes = [
   { path: 'contenido', component: ContenidoComponent },
   {path: '', component: HomeComponent },
   {path: 'registroanteproyecto', component: RegistroanteproyectoComponent },
   {path: 'items', component: ItemsComponent },
+  {path: 'registraritems', component: RegistraritemsComponent },
   {
     path:'footer', component: HomeComponent
   }

@@ -14,5 +14,18 @@
       "id": 2
     }
   ],
-  "items": []
+  "items": [
+    {
+      "nombre": "jjj",
+      "id": 1
+    },
+    {
+      "nombre": "hhhh",
+      "id": 2
+    }
+  ],
+  "detalle": [
+
+
+  ]
 }

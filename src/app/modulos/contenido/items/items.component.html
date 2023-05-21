@@ -1,1 +1,25 @@
-,n,nm,nm,nm,
+<h1>Items</h1>
+<div class="row">
+  <button type="button" [routerLink]="['/registraritems']" class="btn btn-primary">crear Items</button>
+  <div class="col-3">
+    <ul class="list-group list-group-flush">
+      <li (click)="onitem(item)" *ngFor="let item of items" class="list-group-item "  style="cursor: pointer;">
+        <a> {{item.nombre}} </a></li>
+
+    </ul>
+
+
+  </div>
+
+  <div class="col-5">
+    <div *ngIf="detalle.item">
+      <h3>Item: {{detalle.item}} </h3>
+      <div class="mb-3">
+        <label for="" class="form-label"></label>
+        <textarea for="" class="form-control" rows="4" [(ngModel)]="detalle.detalle"></textarea>
+      </div>
+      <button type="button" (click)="onSave()" class="btn btn-success">guardar</button>
+    </div>
+    </div>
+
+</div>
