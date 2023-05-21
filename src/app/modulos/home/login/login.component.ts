@@ -27,7 +27,7 @@ export class LoginComponent {
       from(this.anteproyectoService.getAnteproyectosByUsuario(this.username)).subscribe((response: any) => {
         if (Array.isArray(response) && response.length > 0) {
           // Usuario con anteproyecto registrado, redirigir a la página de detalle del anteproyecto
-          this.router.navigate(['/items']);
+          this.router.navigate(['/contenido']);
         } else {
           // Estudiante sin anteproyecto registrado
           this.router.navigate(['/registroanteproyecto']);
@@ -38,7 +38,7 @@ export class LoginComponent {
       from(this.anteproyectoService.getAnteproyectosByUsuario(this.username)).subscribe((response: any) => {
         if (Array.isArray(response) && response.length > 0) {
           // Usuario con anteproyecto registrado, redirigir a la página de detalle del anteproyecto
-          this.router.navigate(['/items']);
+          this.router.navigate(['/contenido']);
         } else {
           // Estudiante sin anteproyecto registrado
           this.router.navigate(['/registroanteproyecto']);

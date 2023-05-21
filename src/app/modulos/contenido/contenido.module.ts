@@ -6,6 +6,7 @@ import { ContenidoComponent } from './contenido.component';
 import { RegistroanteproyectoComponent } from './registroanteproyecto/registroanteproyecto.component';
 import { FormsModule } from '@angular/forms';
 import { ItemsComponent } from './items/items.component';
+import { HomeModule } from '../home/home.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ItemsComponent } from './items/items.component';
   imports: [
     CommonModule,
     ContenidoRoutingModule,
-    FormsModule 
-  ]
+    FormsModule,
+    HomeModule
+  ],
 })
 export class ContenidoModule { }

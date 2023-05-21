@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HeaderComponent,
     LoginComponent,
- 
+
 
   ],
   imports: [
@@ -26,6 +26,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-  ]
+  ], exports:[FooterComponent,HomeComponent,HeaderComponent]
 })
 export class HomeModule { }

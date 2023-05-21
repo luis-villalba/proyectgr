@@ -27,7 +27,7 @@ export class RegistroanteproyectoComponent {
 
     this.anteproyectoService.createAnteproyecto(anteproyecto).subscribe(() => {
       alert('Anteproyecto registrado exitosamente');
-      this.router.navigate(['/items']); // Redirige al componente DetalleAnteproyectoComponent
+      this.router.navigate(['/contenido']); // Redirige al componente DetalleAnteproyectoComponent
     });
   }
 }
