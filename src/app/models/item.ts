@@ -1,8 +1,10 @@
 export class Item {
-  public id!:number
-  public nombre!:string
-  set(data:any){
-    this.id = data.id
-    this.nombre = data.nombre
+  public id!: number;
+  public nombre!: string;
+  public estado: string = 'borrador'; 
+  set(data: any) {
+    this.id = data.id;
+    this.nombre = data.nombre;
   }
 }
+
