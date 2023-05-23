@@ -9,7 +9,7 @@ export class ItemService {
   constructor(
     private http:HttpClient
   ) { }
-  load() {
+  load(username: string) {
     return this.http.get('http://localhost:3000/items' );
   }
 

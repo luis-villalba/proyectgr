@@ -11,10 +11,10 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./items.component.sass']
 })
 export class ItemsComponent implements OnInit {
-  public items: Item[] = [];
+
   public detalle: Detalle = new Detalle();
   public userItems: Item[] = [];
-  
+
   constructor(
     private itemService: ItemService,
     private detalleService: DetalleService,
@@ -24,20 +24,23 @@ export class ItemsComponent implements OnInit {
   ngOnInit(): void {
     const username = this.authService.getLoggedInUser();
     this.itemService.getItemsByUsuario(username).subscribe(
-      (response: Item[]) => {
+      (response: Item[]) => {response.forEach((elem: any)=>{
+        let temp = new Item()
+        temp.set(elem)
         this.userItems = response;
-      },
+      }),
       (error: any) => {
         console.error('Error al obtener los items:', error);
         // Manejar el error de obtener los items
         // Puedes mostrar un mensaje de error o realizar otra acción adecuada
       }
-    );
+      });
+
   }
 
   onSave() {
     if (this.detalle.item) {
-      const item = this.items.find((item) => item.id === this.detalle.item);
+      const item = this.userItems.find((item) => item.id === this.detalle.item);
       if (item) {
         item.estado = 'enviado';
         this.detalleService.create(this.detalle).subscribe(() => {
@@ -51,7 +54,7 @@ export class ItemsComponent implements OnInit {
   onNextItem() {
     const nextItemIndex = this.getNextItemIndex();
     if (nextItemIndex !== -1) {
-      const nextItem = this.items[nextItemIndex];
+      const nextItem = this.userItems[nextItemIndex];
       if (nextItem.estado === 'aprobado') {
         this.onitem(nextItem);
       }
@@ -60,8 +63,8 @@ export class ItemsComponent implements OnInit {
 
 
   getNextItemIndex(): number {
-    const currentIndex = this.items.findIndex((item) => item.id === this.detalle.item);
-    if (currentIndex !== -1 && currentIndex < this.items.length - 1) {
+    const currentIndex = this.userItems.findIndex((item) => item.id === this.detalle.item);
+    if (currentIndex !== -1 && currentIndex < this.userItems.length - 1) {
       return currentIndex + 1;
     }
     return -1;
@@ -69,20 +72,20 @@ export class ItemsComponent implements OnInit {
 
   isNextButtonDisabled(): boolean {
     const nextItemIndex = this.getNextItemIndex();
-    return nextItemIndex === -1 || this.items[nextItemIndex].estado !== 'aprobado';
+    return nextItemIndex === -1 || this.userItems[nextItemIndex].estado !== 'aprobado';
   }
 
   onitem(item: Item) {
     this.detalle.item = item.id;
   }
   isItemEditable(): boolean {
-    const currentItem = this.items.find((item) => item.id === this.detalle.item);
+    const currentItem = this.userItems.find((item) => item.id === this.detalle.item);
     return currentItem !== undefined && (currentItem.estado === 'borrador' || currentItem.estado === 'correccion');
   }
 
   onDraft() {
     if (this.detalle.item) {
-      const item = this.items.find((item) => item.id === this.detalle.item);
+      const item = this.userItems.find((item) => item.id === this.detalle.item);
       if (item) {
         item.estado = 'borrador';
       }
