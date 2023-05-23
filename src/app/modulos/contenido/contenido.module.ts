@@ -10,12 +10,14 @@ import { HomeModule } from '../home/home.module';
 import { RegistraritemsComponent } from './registraritems/registraritems.component';
 
 
+
 @NgModule({
   declarations: [
     ContenidoComponent,
     RegistroanteproyectoComponent,
     ItemsComponent,
-    RegistraritemsComponent
+    RegistraritemsComponent,
+
   ],
   imports: [
     CommonModule,

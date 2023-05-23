@@ -15,7 +15,8 @@ export class ContenidoComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthenticationService,
-    private anteproyectoService: AnteproyectoService
+    private anteproyectoService: AnteproyectoService,
+    private itemService: ItemService
   ) {
     this.anteproyecto = null;
     this.items = [];
@@ -29,6 +30,7 @@ export class ContenidoComponent implements OnInit {
           this.anteproyecto = response[0];
           if (this.anteproyecto.id) {
             this.getItems(this.anteproyecto.id);
+            this.getItemsByUsuario(username);
           } else {
             console.error('El anteproyecto no tiene una propiedad "id":', this.anteproyecto);
             // Manejar el caso cuando el anteproyecto no tiene una propiedad "id"
@@ -44,6 +46,18 @@ export class ContenidoComponent implements OnInit {
     );
   }
 
+  getItemsByUsuario(username: string) {
+    this.itemService.getItemsByUsuario(username).subscribe((response: any) => {
+      if (Array.isArray(response)) {
+        // Si la respuesta es un array, se asigna la respuesta a la propiedad 'items'
+        this.items = response;
+      } else {
+        // Si la respuesta no es un array, se muestra un mensaje de error
+        console.error('La respuesta no es un array:', response);
+        // Puedes realizar otra acción adecuada en este caso
+      }
+    });
+  }
 
 
   getItems(anteproyectoId: number) {

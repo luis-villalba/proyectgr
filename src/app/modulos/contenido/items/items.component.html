@@ -3,7 +3,7 @@
   <button type="button" [routerLink]="['/registraritems']" class="btn btn-primary">Crear Items</button>
   <div class="col-3">
     <ul class="list-group list-group-flush">
-      <li (click)="onitem(item)" *ngFor="let item of items" class="list-group-item" [class.active]="item.estado === 'aprobado'" [class.draft]="item.estado === 'borrador'" [class.sent]="item.estado === 'enviado'" [class.correction]="item.estado === 'correccion'" style="cursor: pointer;">
+      <li (click)="onitem(item)" *ngFor="let item of userItems" class="list-group-item" [class.active]="item.estado === 'aprobado'" [class.draft]="item.estado === 'borrador'" [class.sent]="item.estado === 'enviado'" [class.correction]="item.estado === 'correccion'" style="cursor: pointer;">
         <a>{{ item.nombre }}</a>
       </li>
     </ul>
@@ -20,6 +20,6 @@
       <button type="button" (click)="onDraft()" [disabled]="!isItemEditable()" class="btn btn-secondary">Borrador</button>
       <button type="button" (click)="onNextItem()" [disabled]="isNextButtonDisabled()" class="btn btn-primary">Siguiente</button>
     </div>
-
   </div>
 </div>
+

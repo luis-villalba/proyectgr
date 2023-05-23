@@ -3,7 +3,8 @@ import { Detalle } from 'src/app/models/detalle';
 import { Item } from 'src/app/models/item';
 import { DetalleService } from 'src/app/services/detalle.service';
 import { ItemService } from 'src/app/services/item.service';
-
+import { Observable } from 'rxjs';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
@@ -12,20 +13,26 @@ import { ItemService } from 'src/app/services/item.service';
 export class ItemsComponent implements OnInit {
   public items: Item[] = [];
   public detalle: Detalle = new Detalle();
-
+  public userItems: Item[] = [];
+  
   constructor(
     private itemService: ItemService,
-    private detalleService: DetalleService
+    private detalleService: DetalleService,
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit(): void {
-    this.itemService.load().subscribe((res: any) => {
-      res.forEach((elem: any) => {
-        let temp = new Item();
-        temp.set(elem);
-        this.items.push(temp);
-      });
-    });
+    const username = this.authService.getLoggedInUser();
+    this.itemService.getItemsByUsuario(username).subscribe(
+      (response: Item[]) => {
+        this.userItems = response;
+      },
+      (error: any) => {
+        console.error('Error al obtener los items:', error);
+        // Manejar el error de obtener los items
+        // Puedes mostrar un mensaje de error o realizar otra acción adecuada
+      }
+    );
   }
 
   onSave() {

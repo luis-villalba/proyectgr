@@ -16,12 +16,22 @@
   ],
   "items": [
     {
-      "nombre": "jjj",
+      "estado": "borrador",
+      "nombre": "justificacion",
+      "usuario": "pmina",
       "id": 1
     },
     {
-      "nombre": "hhhh",
+      "estado": "borrador",
+      "nombre": "dfgafdg",
+      "usuario": "pmina",
       "id": 2
+    },
+    {
+      "estado": "borrador",
+      "nombre": "cvczxcv",
+      "usuario": "lvillalba",
+      "id": 3
     }
   ],
   "detalle": [
