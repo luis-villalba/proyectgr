@@ -40,12 +40,17 @@ export class ItemsComponent implements OnInit {
     }
   }
 
+
   onNextItem() {
     const nextItemIndex = this.getNextItemIndex();
     if (nextItemIndex !== -1) {
-      this.onitem(this.items[nextItemIndex]);
+      const nextItem = this.items[nextItemIndex];
+      if (nextItem.estado === 'aprobado') {
+        this.onitem(nextItem);
+      }
     }
   }
+
 
   getNextItemIndex(): number {
     const currentIndex = this.items.findIndex((item) => item.id === this.detalle.item);
@@ -63,4 +68,19 @@ export class ItemsComponent implements OnInit {
   onitem(item: Item) {
     this.detalle.item = item.id;
   }
+  isItemEditable(): boolean {
+    const currentItem = this.items.find((item) => item.id === this.detalle.item);
+    return currentItem !== undefined && (currentItem.estado === 'borrador' || currentItem.estado === 'correccion');
+  }
+
+  onDraft() {
+    if (this.detalle.item) {
+      const item = this.items.find((item) => item.id === this.detalle.item);
+      if (item) {
+        item.estado = 'borrador';
+      }
+    }
+  }
+
+
 }

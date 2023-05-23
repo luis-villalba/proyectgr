@@ -25,7 +25,10 @@
     }
   ],
   "detalle": [
-
-
+    {
+      "item": 1,
+      "detalle": "fgcfbxv",
+      "id": 1
+    }
   ]
 }
