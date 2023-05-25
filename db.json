@@ -13,31 +13,60 @@
   ],
   "anteproyectos": [
     {
-      "nombre": "hj",
-      "descripcion": "yjyjty",
-      "usuario": "ydiaz",
-      "id": 2
+      "nombre": "la cvasa de papel",
+      "descripcion": "parac que haga su casa",
+      "usuario": "lvillalba",
+      "id": 1
     },
     {
-      "nombre": "bfdbdf",
-      "descripcion": "fghndfjhngn",
-      "usuario": "lvillalba",
-      "id": 3
+      "nombre": "casa de madera",
+      "descripcion": "su cas aed mams",
+      "usuario": "ydiaz",
+      "id": 2
     }
   ],
   "items": [
     {
       "estado": "borrador",
-      "nombre": "rr",
-      "usuario": "ydiaz",
+      "nombre": "oio",
+      "usuario": "lvillalba",
       "id": 1
     },
     {
       "estado": "borrador",
-      "nombre": "k´ñ{}kñ{}",
+      "nombre": "ooo",
       "usuario": "lvillalba",
       "id": 2
+    },
+    {
+      "estado": "borrador",
+      "nombre": "1123",
+      "usuario": "ydiaz",
+      "id": 3
+    },
+    {
+      "estado": "borrador",
+      "nombre": "eeeee",
+      "usuario": "ydiaz",
+      "id": 4
+    },
+    {
+      "estado": "borrador",
+      "nombre": "dfgdfg",
+      "usuario": "ydiaz",
+      "id": 5
     }
   ],
-  "detalle": []
+  "detalle": [
+    {
+      "item": 1,
+      "detalle": "si claro",
+      "id": 1
+    },
+    {
+      "item": 3,
+      "detalle": "ffdgdfg",
+      "id": 2
+    }
+  ]
 }

@@ -24,16 +24,12 @@ private authService: AuthenticationService
 ){
 
 }
-ngOnInit(): void {
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
-  this.usuario = this.authService.getLoggedInUser();
-}
+ngOnInit(): void {}
 
 onSave() {
-  this.item.usuario = this.authService.getLoggedInUser();
   this.itemService.create(this.item).subscribe(
     () => {
+      alert('Item registrado exitosamente');
       this.router.navigate(['/contenido']);
     },
     (error: any) => {
