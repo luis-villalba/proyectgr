@@ -23,32 +23,43 @@ export class ItemsComponent implements OnInit {
 
   ngOnInit(): void {
     const username = this.authService.getLoggedInUser();
-    this.itemService.getItemsByUsuario(username).subscribe(
-      (response: Item[]) => {response.forEach((elem: any)=>{
-        let temp = new Item()
-        temp.set(elem)
-        this.userItems = response;
-      }),
-      (error: any) => {
-        console.error('Error al obtener los items:', error);
-        // Manejar el error de obtener los items
-        // Puedes mostrar un mensaje de error o realizar otra acción adecuada
-      }
-      });
 
+    // Intentar cargar los items del usuario desde el almacenamiento local
+    const storedItemsString = localStorage.getItem(`${username}_userItems`);
+    if (storedItemsString) {
+      this.userItems = JSON.parse(storedItemsString);
+    }
+
+    // Obtener los items del servidor solo si no se encontraron en el almacenamiento local
+    if (this.userItems.length === 0) {
+      this.itemService.getItemsByUsuario(username).subscribe(
+        (response: Item[]) => {
+          this.userItems = response;
+          this.saveItemsToLocalStorage(username); // Guardar items en localStorage
+        },
+        (error: any) => {
+          console.error('Error al obtener los items:', error);
+          // Manejar el error de obtener los items
+          // Puedes mostrar un mensaje de error o realizar otra acción adecuada
+        }
+      );
+    }
   }
+
 
   onSave() {
     if (this.detalle.item) {
       const item = this.userItems.find((item) => item.id === this.detalle.item);
       if (item) {
         item.estado = 'enviado';
+        this.detalle.usuario = this.authService.getLoggedInUser(); // Agregar el nombre de usuario al detalle
         this.detalleService.create(this.detalle).subscribe(() => {
           this.detalle = new Detalle();
         });
       }
     }
   }
+
 
 
   onNextItem() {
@@ -90,6 +101,9 @@ export class ItemsComponent implements OnInit {
         item.estado = 'borrador';
       }
     }
+  }
+  private saveItemsToLocalStorage(username: string): void {
+    localStorage.setItem(`${username}_userItems`, JSON.stringify(this.userItems));
   }
 
 

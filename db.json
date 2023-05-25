@@ -26,7 +26,18 @@
     }
   ],
   "items": [
-  
+    {
+      "estado": "borrador",
+      "nombre": "rr",
+      "usuario": "ydiaz",
+      "id": 1
+    },
+    {
+      "estado": "borrador",
+      "nombre": "vbn",
+      "usuario": "",
+      "id": 2
+    }
   ],
   "detalle": []
 }
