@@ -8,7 +8,7 @@ export class AnteproyectoService {
   private apiUrl =  'http://localhost:3000/anteproyectos';
   constructor(private http: HttpClient) { }
   load() {
-    return this.http.get('hhttp://localhost:3000/anteproyectos' );
+    return this.http.get('http://localhost:3000/anteproyectos' );
   }
 
   createAnteproyecto(anteproyecto: any) {

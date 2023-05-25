@@ -47,7 +47,7 @@ export class ContenidoComponent implements OnInit {
   }
 
   getItemsByUsuario(username: string) {
-    this.itemService.getItemsByUsuario(username).subscribe((response: any) => {
+    this.itemService.getItemsByUsuario(username).subscribe((response: any[]) => {
       if (Array.isArray(response)) {
         // Si la respuesta es un array, se asigna la respuesta a la propiedad 'items'
         this.items = response;

@@ -13,31 +13,20 @@
   ],
   "anteproyectos": [
     {
-      "nombre": "luis",
-      "descripcion": "esreb je e",
-      "usuario": "",
-      "id": 1
-    }
-  ],
-  "items": [
-    {
-      "estado": "borrador",
-      "nombre": "edf",
-      "usuario": "",
-      "id": 1
-    },
-    {
-      "estado": "borrador",
-      "nombre": "dddddddd",
-      "usuario": "",
+      "nombre": "hj",
+      "descripcion": "yjyjty",
+      "usuario": "ydiaz",
       "id": 2
     },
     {
-      "estado": "borrador",
-      "nombre": "gfdgdf",
-      "usuario": "",
+      "nombre": "bfdbdf",
+      "descripcion": "fghndfjhngn",
+      "usuario": "lvillalba",
       "id": 3
     }
+  ],
+  "items": [
+  
   ],
   "detalle": []
 }

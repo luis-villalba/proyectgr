@@ -17,8 +17,8 @@ export class RegistraritemsComponent  implements OnInit{
 
 
 constructor(
-private itemServive:ItemService,
-public route: Router,
+private itemService:ItemService,
+public router: Router,
 private authService: AuthenticationService
 
 ){
@@ -30,12 +30,18 @@ ngOnInit(): void {
   this.usuario = this.authService.getLoggedInUser();
 }
 
-onSave(){
-  this.item.usuario = this.usuario;
-this.itemServive.create(this.item).subscribe(()=>{
-
-this.route.navigate(['/contenido'])
-})
+onSave() {
+  this.item.usuario = this.authService.getLoggedInUser();
+  this.itemService.create(this.item).subscribe(
+    () => {
+      this.router.navigate(['/contenido']);
+    },
+    (error: any) => {
+      console.error('Error al guardar el item:', error);
+      // Manejar el error de guardar el item
+      // Puedes mostrar un mensaje de error o realizar otra acción adecuada
+    }
+  );
 }
 
 }
