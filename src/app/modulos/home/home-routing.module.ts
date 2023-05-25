@@ -5,6 +5,7 @@ import { ContenidoComponent } from '../contenido/contenido.component';
 import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
 import { RegistroanteproyectoComponent } from '../contenido/registroanteproyecto/registroanteproyecto.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'contenido', component: ContenidoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registroanteproyecto', component: RegistroanteproyectoComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({

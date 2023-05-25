@@ -1,21 +1,43 @@
 {
-  "users": [],
-  "anteproyectos": [
+  "users": [
     {
-      "nombre": "ff",
-      "descripcion": "gjhnfgnjh",
-      "usuario": "lvillalba",
+      "username": "lvillalba",
+      "password": "l2023",
       "id": 1
     },
     {
-      "nombre": "fhdfh",
-      "descripcion": "hdfhfh",
-      "usuario": "pmina",
+      "username": "ydiaz",
+      "password": "y2023",
       "id": 2
     }
   ],
+  "anteproyectos": [
+    {
+      "nombre": "luis",
+      "descripcion": "esreb je e",
+      "usuario": "",
+      "id": 1
+    }
+  ],
   "items": [
-    
+    {
+      "estado": "borrador",
+      "nombre": "edf",
+      "usuario": "",
+      "id": 1
+    },
+    {
+      "estado": "borrador",
+      "nombre": "dddddddd",
+      "usuario": "",
+      "id": 2
+    },
+    {
+      "estado": "borrador",
+      "nombre": "gfdgdf",
+      "usuario": "",
+      "id": 3
+    }
   ],
   "detalle": []
 }

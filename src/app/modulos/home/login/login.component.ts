@@ -20,31 +20,25 @@ export class LoginComponent {
   ) {}
 
   login() {
-    // Verificar las credenciales del estudiante
-    if (this.username === 'lvillalba' && this.password === '12345') {
-      this.authService.setLoggedInUser(this.username);
-      // Verificar si el usuario 'lvillalba' ya tiene un anteproyecto registrado
-      from(this.anteproyectoService.getAnteproyectosByUsuario(this.username)).subscribe((response: any) => {
-        if (Array.isArray(response) && response.length > 0) {
-          // Usuario con anteproyecto registrado, redirigir a la página de detalle del anteproyecto
-          this.router.navigate(['/contenido']);
-        } else {
-          // Estudiante sin anteproyecto registrado
-          this.router.navigate(['/registroanteproyecto']);
-        }
-      });
-    } else if (this.username === 'pmina' && this.password === 'p2023') {
-      this.authService.setLoggedInUser(this.username);
-      from(this.anteproyectoService.getAnteproyectosByUsuario(this.username)).subscribe((response: any) => {
-        if (Array.isArray(response) && response.length > 0) {
-          // Usuario con anteproyecto registrado, redirigir a la página de detalle del anteproyecto
-          this.router.navigate(['/contenido']);
-        } else {
-          // Estudiante sin anteproyecto registrado
-          this.router.navigate(['/registroanteproyecto']);
-        }
-      });
-    } else {
-      alert('Credenciales inválidas');
-    }
-}}
+    this.authService.loginUser(this.username, this.password).subscribe((response: any) => {
+      if (response.length > 0) {
+        this.authService.setLoggedInUser(this.username);
+
+        // Verificar si el usuario tiene un anteproyecto registrado
+        from(this.anteproyectoService.getAnteproyectosByUsuario(this.username)).subscribe((response: any) => {
+          if (Array.isArray(response) && response.length > 0) {
+            // Usuario con anteproyecto registrado, redirigir a la página de detalle del anteproyecto
+            this.router.navigate(['/contenido']);
+          } else {
+            // Estudiante sin anteproyecto registrado
+            this.router.navigate(['/registroanteproyecto']);
+          }
+        });
+      } else {
+        alert('Credenciales inválidas');
+      }
+    });
+  }
+
+
+}
