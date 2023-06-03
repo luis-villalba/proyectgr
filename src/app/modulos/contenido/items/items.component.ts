@@ -28,21 +28,16 @@ export class ItemsComponent implements OnInit {
         let temp = new Item()
         temp.set(elem)
         this.userItems = response;
-      }),
-      (error: any) => {
-        console.error('Error al obtener los items:', error);
-        // Manejar el error de obtener los items
-        // Puedes mostrar un mensaje de error o realizar otra acción adecuada
-      }
+      })
       });
 
   }
 
   onSave() {
     if (this.detalle.item) {
-      const item = this.userItems.find((item) => item.id === this.detalle.item);
+      const item = this.userItems.find((item) => item.nombre === this.detalle.item);
       if (item) {
-        item.estado = 'enviado';
+
         this.detalleService.create(this.detalle).subscribe(() => {
           this.detalle = new Detalle();
         });
@@ -51,14 +46,8 @@ export class ItemsComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
   onitem(item: Item) {
-    this.detalle.item = item.id;
+    this.detalle.item = item.nombre;
   }
 
 

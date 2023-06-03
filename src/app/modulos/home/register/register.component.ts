@@ -16,7 +16,7 @@ export class RegisterComponent {
   ) {}
   register() {
     this.authService.registerUser(this.username, this.password).subscribe(() => {
-    
+      alert(' registrado exitosamente');
       this.router.navigate(['/home']);
     });
   }

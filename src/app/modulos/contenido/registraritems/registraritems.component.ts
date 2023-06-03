@@ -31,12 +31,8 @@ onSave() {
     () => {
       alert('Item registrado exitosamente');
       this.router.navigate(['/contenido']);
-    },
-    (error: any) => {
-      console.error('Error al guardar el item:', error);
-      // Manejar el error de guardar el item
-      // Puedes mostrar un mensaje de error o realizar otra acción adecuada
     }
+
   );
 }
 
