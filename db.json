@@ -1,15 +1,32 @@
 {
   "users": [
-  
+    {
+      "username": "lvillalba",
+      "password": "12345",
+      "id": 1
+    }
   ],
   "anteproyectos": [
-
+    {
+      "nombre": "Robotica con arduino",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis molestiae odio veniam",
+      "usuario": "lvillalba",
+      "id": 1
+    }
   ],
   "items": [
-
-
+    {
+      "estado": "borrador",
+      "nombre": "justificacion",
+      "usuario": "lvillalba",
+      "id": 1
+    }
   ],
   "detalle": [
-
+    {
+      "item": "justificacion",
+      "detalle": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis molestiae odio veniam nostrum perspiciatis",
+      "id": 1
+    }
   ]
 }
