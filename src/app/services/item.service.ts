@@ -7,12 +7,13 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root'
 })
 export class ItemService {
+  private apiUrl = 'http://localhost:3000/items';
   constructor(
     private http:HttpClient,
     private authService: AuthenticationService
   ) { }
   load(username: string) {
-    return this.http.get('http://localhost:3000/items' );
+    return this.http.get(this.apiUrl);
   }
 
 
@@ -20,9 +21,9 @@ export class ItemService {
   create(info: Item): Observable<any> {
     const username = this.authService.getLoggedInUser();
     info.usuario = username;
-    return this.http.post('http://localhost:3000/items', info);
+    return this.http.post(this.apiUrl, info);
   }
   getItemsByUsuario(username: string): Observable<Item[]> {
-    return this.http.get<Item[]>(`http://localhost:3000/items?usuario=${username}`);
+    return this.http.get<Item[]>(`${this.apiUrl}?usuario=${username}`);
   }
 }

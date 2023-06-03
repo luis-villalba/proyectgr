@@ -6,18 +6,18 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DetalleService {
-
+  private apiUrl = 'http://localhost:3000/detalle';
   constructor(
     private http:HttpClient
   ) { }
 
   load() {
-    return this.http.get('http://localhost:3000/detalle' );
+    return this.http.get( this.apiUrl);
   }
 
 
 
   create(info: Detalle){
-return this.http.post('http://localhost:3000/detalle', info );
+return this.http.post(this.apiUrl, info );
   }
 }

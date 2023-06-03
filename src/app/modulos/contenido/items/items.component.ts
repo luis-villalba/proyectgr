@@ -51,46 +51,17 @@ export class ItemsComponent implements OnInit {
   }
 
 
-  onNextItem() {
-    const nextItemIndex = this.getNextItemIndex();
-    if (nextItemIndex !== -1) {
-      const nextItem = this.userItems[nextItemIndex];
-      if (nextItem.estado === 'aprobado') {
-        this.onitem(nextItem);
-      }
-    }
-  }
 
 
-  getNextItemIndex(): number {
-    const currentIndex = this.userItems.findIndex((item) => item.id === this.detalle.item);
-    if (currentIndex !== -1 && currentIndex < this.userItems.length - 1) {
-      return currentIndex + 1;
-    }
-    return -1;
-  }
 
-  isNextButtonDisabled(): boolean {
-    const nextItemIndex = this.getNextItemIndex();
-    return nextItemIndex === -1 || this.userItems[nextItemIndex].estado !== 'aprobado';
-  }
+
+
 
   onitem(item: Item) {
     this.detalle.item = item.id;
   }
-  isItemEditable(): boolean {
-    const currentItem = this.userItems.find((item) => item.id === this.detalle.item);
-    return currentItem !== undefined && (currentItem.estado === 'borrador' || currentItem.estado === 'correccion');
-  }
 
-  onDraft() {
-    if (this.detalle.item) {
-      const item = this.userItems.find((item) => item.id === this.detalle.item);
-      if (item) {
-        item.estado = 'borrador';
-      }
-    }
-  }
+
 
 
 }
